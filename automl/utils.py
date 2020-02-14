@@ -39,14 +39,6 @@ def logad_pkl(data_path):
         data=pickle.loads(f)
         return data
 
-# def parse_json(args,parse_dict):
-#     if not parse_dict:
-#         with open(args.test_json.sample,encoding='utf-8') as f:
-#             data=json.load(f)
-#     else:
-#         data=parse_dict
-#     output=read_json_cat.json_to_df(data)
-#     return output
 
 def get_config(yaml_file):
     with open(yaml_file,"r",encoding="utf-8") as f:
