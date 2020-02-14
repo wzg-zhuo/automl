@@ -6,29 +6,10 @@ import optuna
 from utils import *
 
 
-# def test_function(paras):
-#     global data_sets
-#     global model
-#     estmator=model(**paras)
-#     estmator.fit(data_sets['train_x'],data_sets['train_y'])
-#     test_r2=regress_results(data_sets['test_x'],data_sets['test_y'],estmator)[0].iloc[0,1]
-#     future_r2=regress_results(data_sets['data_future'],data_sets['target_future'],estmator)[0].iloc[0,1]
-#     print(paras)
-#     print('future_r2:',future_r2)
-#     return 1-test_r2
-
-# def future_function(paras):
-#     global data_sets
-#     estmator=model(**paras,random_state=28)
-#     estmator.fit(data_sets['train_x'],data_sets['train_y'])
-#     future_r2=regress_results(data_sets['data_future'],data_sets['target_future'],estmator)[0].iloc[0,1]
-#     print(paras)
-#     return 1-future_r2
-
 logger=get_logger()
 
 
-
+##hyperopt of automl
 class hyper_best:
     """
     data_sets为字典,'train_x':train_x，
@@ -302,19 +283,7 @@ class hyper_best:
 
 
 
-# def objective(trial,para_dct,model):
-#     op_dct = {}
-#     for k, v in para_dct.items():
-#            op_dct[k] = trial.suggest_categorical(k, v)
-#
-#     clf=model(**op_dct)
-#     clf.fit(data_sets['train_x'], data_sets['train_y'])
-#
-#     test_auc=auc_results(data_sets['test_x'], data_sets['test_y'], clf)
-#
-#     return 1-test_auc
-
-
+##optuna of automl
 class optu_best:
     def __init__(self,data_sets,paras_input):
         self.data_sets=data_sets
